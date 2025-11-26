@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faFilter } from "@fortawesome/free-solid-svg-icons";
 
 function SearchFilter({ onBookStatusChange }) {
+  const API = "https://digitallibrary-backend.onrender.com";
   const [query, setQuery] = useState("");
   const [genre, setGenre] = useState("All");
   const [books, setBooks] = useState([]);
@@ -211,7 +212,7 @@ function SearchFilter({ onBookStatusChange }) {
               className="bg-gray-50 border border-gray-200 rounded-lg p-3 flex gap-3"
             >
               <img
-                src={`${API}/${book.image}`}
+                src={API + "/" + book.image}
                 className="w-20 h-20 object-cover rounded-md"
               />
 
@@ -224,13 +225,7 @@ function SearchFilter({ onBookStatusChange }) {
                 </span>
 
                 <span
-                  className={`mt-1 text-xs font-semibold ${
-                    book.status === "Available"
-                      ? "text-green-700"
-                      : book.status === "Pending"
-                      ? "text-yellow-700"
-                      : "text-gray-600"
-                  }`}
+                  className={"mt-1 text-xs font-semibold " + (book.status === "Available" ? "text-green-700" : book.status === "Pending" ? "text-yellow-700" : "text-gray-600")}
                 >
                   {book.status}
                 </span>
