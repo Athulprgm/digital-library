@@ -15,6 +15,7 @@ import ResetPassword from "./Pages/ResetPassword";
 
 
 function App() {
+  
   // Load saved profile from localStorage (for notification)
   const savedProfile = JSON.parse(localStorage.getItem("profileData")) || {};
 
@@ -48,3 +49,5 @@ function App() {
 }
 
 export default App;
+export const API = "http://localhost:5000";
+

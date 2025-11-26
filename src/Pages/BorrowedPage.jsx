@@ -46,7 +46,6 @@ function Borrowed() {
 
       setBorrowed(accepted);
     } catch (err) {
-      console.error("Error loading borrowed books:", err);
       toast.error("Error loading borrowed books");
       setBorrowed([]);
     } finally {
@@ -84,7 +83,6 @@ function Borrowed() {
       toast.success(res?.data?.message || "Book returned successfully");
       setBorrowed((prev) => prev.filter((b) => b?._id !== selectedReq));
     } catch (err) {
-      console.error("Failed to return book:", err);
       toast.error("Failed to return book");
     }
 

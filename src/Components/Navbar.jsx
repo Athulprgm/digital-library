@@ -104,7 +104,7 @@ function Navbar() {
                 <img
                   src={profilePhoto || "/default.png"}
                   alt="Profile"
-                  className="w-10 h-10 rounded-full border object-cover   hover:scale-110"
+                  className="w-10 h-10 rounded-full border object-cover "
                 />
               </Link>
             </>
@@ -152,6 +152,13 @@ function Navbar() {
                 className={`flex items-center gap-2 ${isActive("/add-book")}`}
               >
                 <FontAwesomeIcon icon={faPlus} /> Add Book
+              </Link>
+
+              <Link
+                to="/borrowed"
+                className={`flex items-center gap-2 ${isActive("/borrowed")}`}
+              >
+                <FontAwesomeIcon icon={faBookReader} /> Borrowed
               </Link>
 
               <Link

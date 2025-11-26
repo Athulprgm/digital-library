@@ -52,7 +52,6 @@ function Requests() {
       setReceivedRequests(res.data.receivedRequests || []);
       setSentRequests(res.data.madeRequests || []);
     } catch (err) {
-      console.error("Load requests error:", err);
       if (err.response?.status !== 404) {
         toast.error("Failed to load requests");
       }
@@ -131,8 +130,6 @@ function Requests() {
       const res = await axios.get(`${API}/api/profile/${userId}`, getAuthHeaders());
       setSelectedUser(res.data);
     } catch (err) {
-      console.error("Profile fetch error:", err);
-      
       if (err.response?.status === 404) {
         toast.error("User profile not found");
       } else if (err.response?.status === 401) {
