@@ -14,7 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
-  const API = "http://localhost:5000";
+  const API = "https://digitallibrary-backend.onrender.com";
   const [menuOpen, setMenuOpen] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState(null);
 

@@ -57,7 +57,7 @@ function SearchFilter({ onBookStatusChange }) {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/requests", {
+      await axios.post(`${API}/api/requests`, {
         bookId,
         userId: user.id,
       });
@@ -91,7 +91,7 @@ function SearchFilter({ onBookStatusChange }) {
     try {
       setLoading(true);
 
-      const res = await axios.get("http://localhost:5000/api/books", {
+      const res = await axios.get(`${API}/api/books`, {
         params: {
           search: query,
           genre: genre === "All" ? "" : genre,
@@ -113,7 +113,7 @@ function SearchFilter({ onBookStatusChange }) {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/books");
+        const res = await axios.get(`${API}/api/books");
         const data = res.data.data || [];
 
         const genres = new Set(data.map((b) => b.genre));
@@ -211,7 +211,7 @@ function SearchFilter({ onBookStatusChange }) {
               className="bg-gray-50 border border-gray-200 rounded-lg p-3 flex gap-3"
             >
               <img
-                src={`http://localhost:5000/${book.image}`}
+                src={`${API}/${book.image}`}
                 className="w-20 h-20 object-cover rounded-md"
               />
 
